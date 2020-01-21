@@ -15,7 +15,7 @@ class QuestionnaireValidator < ActiveModel::Validator
   private
 
   def validate_object_structure!(element)
-    validate_type element, 'type', 'questionnaire'
+    validate_type element, 'questionnaire'
     validate_presence element, 'reference'
     validate_content element
 
@@ -27,7 +27,7 @@ class QuestionnaireValidator < ActiveModel::Validator
   end
 
   def validate_slide(element)
-    validate_type element, 'type', 'slide'
+    validate_type element,  'slide'
     validate_presence element, 'reference'
     validate_presence element, 'label'
     validate_content element
@@ -87,9 +87,9 @@ class QuestionnaireValidator < ActiveModel::Validator
     end
   end
 
-  def validate_type(element, key, type)
-    if element[key] != type
-      errors << "The type of the #{element['reference']} element should be #{type}"
+  def validate_type(element, value)
+    if element['type'] != value
+      errors << "The type of the #{element['reference']} element should be #{value}"
     end
   end
 end

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_200812) do
     t.jsonb "object", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["reference"], name: "index_questionnaires_on_reference"
   end
 
 end
