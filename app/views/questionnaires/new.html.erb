@@ -1,0 +1,5 @@
+<%= simple_form_for(@questionnaire, multipart: true) do |f| %>
+  <%= f.error_notification message: f.object.errors[:base].join('. ') %>
+  <%= f.input :file, as: :file, label: 'Questionnaire' %>
+  <%= f.button :submit, 'Upload', class: 'btn-primary' %>
+<% end %>
